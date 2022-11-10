@@ -2,7 +2,7 @@
 一个微前端教学项目
 
 ## 原理分析
-* [手把手教你写一个简易的微前端框架 ](https://github.com/woai3c/Front-end-articles/issues/31)
+* [手把手教你写一个简易的微前端框架 ](https://www.yuque.com/xiumubai/fe/nnh6x0?# 《文档》)
 
 ## 功能
 * 支持不同框架的子应用
@@ -18,21 +18,14 @@
 ```
 pnpm install --frozen-lockfile && pnpm install:all
 ```
+如果无法安装可以先安装`npm-run-all`包再执行`pnpm install:all`
+
 运行开发环境
 ```
 pnpm dev:all
 ```
 访问 `http://localhost:8000`，即可查看多个 spa 子应用的示例。
 
-## 使用
-### 安装
-```bash
-npm i mini-single-spa
-# or
-pnpm i mini-single-spa
-# or
-yarn add mini-single-spa
-```
 
 ### 主应用
 在主应用上注册子应用
@@ -104,6 +97,7 @@ window.spaGlobalState.emit('testEvent', '父应用发送了一个全局事件: t
 window.spaGlobalState.on('testEvent', () => alert('vue 子应用监听到父应用发送了一个全局事件: testEvent'))
 ```
 **注意**，子应用设置的全局状态、事件会在卸载时清除，并且不会保存快照。所以建议将状态、事件相关操作放在 `mount()` 函数执行时或之后。
+
 #### 全局状态、事件 API
 ```ts
 // 状态相关
